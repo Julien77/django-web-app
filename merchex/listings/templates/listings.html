@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load custom_tags %}
+
+{% block content %}
+	<h1>Listing adverts</h1>
+	<ul>
+		{% for advert in adverts %}
+			{% with 'false' as found %}
+				{% for band in bands %}
+					{% if band.name in advert.title %}
+						<li>{{ advert.title | bold_value:band.name | safe}}</li>
+						{{ found|update_value:'true' }}
+					{% endif %}
+				{% endfor %}
+				{% if found == 'false' %}
+					<li>{{ advert.title }}</li>
+				{% endif %}
+			{% endwith %}
+		{% endfor %}
+	</ul>
+{% endblock %}

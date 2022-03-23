@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block content %}
+	<h1>Hello Django</h1>
+	<p>Mes {{ bands | length }} groupes préférés sont : </p>
+	<ul>
+	{% for band in bands %}
+	<li>{{ band.name | upper }}</li>
+	{% endfor %}
+	</ul>
+	<p>&copy; {{ date | date:"Y" }} merchex.local</p>
+{% endblock %}

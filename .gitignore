@@ -1,4 +1,5 @@
 env/
 merchex/db.sqlite3
+superuser.txt
 
 
